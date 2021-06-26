@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ github.repository }}:1.0
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_IMAGE }}:1.0
           #ags: ${{ github.sha }}
   deploy-to-cluster:
     name: deploy to cluster
