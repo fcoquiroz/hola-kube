@@ -12,13 +12,15 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     - name: build and push to docker
+      id: docker_build
       uses: docker/build-push-action@v2
       with:
         #username: ${{ secrets.DOCKER_USERNAME }}
         #password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: ${{ github.repository }}
-        tag_with_ref: true
-        tag_with_sha: true
+        #repository: ${{ github.repository }}
+        #tag_with_ref: true
+        #tag_with_sha: true
+        push: true
         tags: ${{ github.sha }}
   deploy-to-cluster:
     name: deploy to cluster
