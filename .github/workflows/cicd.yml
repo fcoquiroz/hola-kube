@@ -28,7 +28,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: fcoquiroz10/hola-kube:latest
+          tags: fcoquiroz10/hola-kube:1.0
           #ags: ${{ github.sha }}
   deploy-to-cluster:
     name: deploy to cluster
@@ -41,7 +41,7 @@ jobs:
         KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
       with:
         #args: set image --record deployment/my-app hola-kube=${{ github.repository }}:${{ github.sha }}
-        args: set image --record deployment/my-app hola-kube=${{ github.repository }}:latest
+        args: set image --record deployment/my-app hola-kube=${{ github.repository }}:1.0
     - name: verify deployment
       uses: steebchen/kubectl@master
       env:
